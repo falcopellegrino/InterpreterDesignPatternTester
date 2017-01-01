@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Structural = InterpreterDesignPattern.StructuralCode;
-//using Structural = InterpreterDesignPattern.RealWorldCode;
-//using Structural = InterpreterDesignPattern.MyCode;
+using Real = InterpreterDesignPattern.RealWorldCode;
+using My = InterpreterDesignPattern.MyCode;
 
 namespace InterpreterDesignPattern
 {
@@ -50,7 +50,7 @@ namespace InterpreterDesignPattern
             // This structural code demonstrates the Interpreter patterns, which using a defined grammer,
             // provides the interpreter that processes parsed statements. 
 
-            Structural.Context context = new Structural.Context();
+            Structural.Context structural_context = new Structural.Context();
 
             // Usually a tree
             ArrayList list = new ArrayList();
@@ -64,7 +64,7 @@ namespace InterpreterDesignPattern
             // Interpret
             foreach (Structural.AbstractExpression exp in list)
             {
-                exp.Interpreter(context);
+                exp.Interpreter(structural_context);
             }
 
             // Wait for user
@@ -72,10 +72,81 @@ namespace InterpreterDesignPattern
             #endregion
 
             #region Real world code in C#
+            // Real-world code in C#
+            // This real-world code demonstrates the Interpreter pattern which is used to convert a Roman numeral to a decimal.
+
+            string roman = "MCMXXVIII";
+            Real.Context real_context = new Real.Context(roman);
+
+            // Build the 'parse tree';
+            List<Real.Expression> tree = new List<Real.Expression>();
+            tree.Add(new Real.ThousandExpression());
+            tree.Add(new Real.HundredExpression());
+            tree.Add(new Real.TenExpression());
+            tree.Add(new Real.OneExpression());
+
+            // Interpret
+            foreach (Real.Expression exp in tree)
+            {
+                exp.Interpret(real_context);
+            }
+
+            Console.WriteLine("{0} = {1}", roman, real_context.Output);
+
+            //Wait for user
+            Console.ReadLine();
             #endregion
 
             #region My code in C#
+            string input = (string)Console.ReadKey().KeyChar.ToString();
+            My.ConvertDigitContext c = new My.ConvertDigitContext(input);
+            Console.WriteLine("");
+
+            // Buil the 'parse tree'
+            List<My.DigitExpression> l = new List<My.DigitExpression>();
+            l.Add(new My.ZeroExpression());
+            l.Add(new My.OneExpression());
+            l.Add(new My.TwoExpression());
+            l.Add(new My.ThreeExpression());
+            l.Add(new My.FourExpression());
+            l.Add(new My.FiveExpression());
+            l.Add(new My.SixExpression());
+            l.Add(new My.SevenExpression());
+            l.Add(new My.EightExpression());
+            l.Add(new My.NineExpression());
+
+            // Interpret
+            foreach (My.DigitExpression d in l)
+            {
+                string r = d.Interpret(c);
+                if (r != "")
+                {
+                    Console.WriteLine(r);
+                }
+            }
+
+            // Wait for user
+            Console.ReadLine();
             #endregion
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

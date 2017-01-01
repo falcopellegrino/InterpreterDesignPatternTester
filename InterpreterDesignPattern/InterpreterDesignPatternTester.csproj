@@ -41,8 +41,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyCode\ConvertDigitContext.cs" />
+    <Compile Include="MyCode\DigitExpression.cs" />
+    <Compile Include="MyCode\TwoExpression.cs" />
+    <Compile Include="MyCode\ThreeExpression.cs" />
+    <Compile Include="MyCode\FourExpression.cs" />
+    <Compile Include="MyCode\FiveExpression.cs" />
+    <Compile Include="MyCode\SixExpression.cs" />
+    <Compile Include="MyCode\SevenExpression.cs" />
+    <Compile Include="MyCode\EightExpression.cs" />
+    <Compile Include="MyCode\NineExpression.cs" />
+    <Compile Include="MyCode\OneExpression.cs" />
+    <Compile Include="MyCode\ZeroExpression.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealWorldCode\Context.cs" />
+    <Compile Include="RealWorldCode\Expression.cs" />
+    <Compile Include="RealWorldCode\HundredExpression.cs" />
+    <Compile Include="RealWorldCode\OneExpression.cs" />
+    <Compile Include="RealWorldCode\TenExpression.cs" />
+    <Compile Include="RealWorldCode\ThousandExpression.cs" />
     <Compile Include="StructuralCode\AbstractExpression.cs" />
     <Compile Include="StructuralCode\Context.cs" />
     <Compile Include="StructuralCode\NonterminalExpression.cs" />
@@ -51,10 +69,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MyCode\" />
-    <Folder Include="RealWorldCode\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
